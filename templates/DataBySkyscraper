@@ -1,1 +1,6 @@
-
+{% extends "layout.html" %}
+{% set active_page = "info" %}
+{% block title %}Data by Skyscraper{% endblock %}
+{% block heading %}Enter a sky Scraper{% endblock %}
+{% block body %}
+{% endblock %}
