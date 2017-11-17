@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
+	    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 2 meta tags should come first in the head; any other head content should come *after* these tags -->
+
+    <!-- Bootstrap -->
+
+    <!-- Latest compiled and minified bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>Skyscrapers Data - {% block title %}{% endblock %}</title>
     </head>
 <body>
-    <nav>
-        <a href=".">Skyscraper Data</a>
-        <ul>
-          <li {% if active_page == "info" %} class="active"{% endif %}><a href=".">Info on the Data</a></li>
-          <li {% if active_page == "Data By Show" %} class="active"{% endif %}><a href=".">Info on each Skyscraper</a></li>
-          <li {% if active_page == "Data By Show" %} class="active"{% endif %}><a href=".">Info on each Skyscraper</a></li>
-        </ul>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+                <a class="navbar-brand" href="#">Skyscrapers</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavBar">
+                <ul class="nav navbar-nav">
+                     <li {% if active_page == "info" %} class="active"{% endif %}><a href="/home">Info on the Data</a></li>
+                     <li {% if active_page == "DataBySkyscraper" %} class="active"{% endif %}><a href="/data">Info on each Skyscraper</a></li>
+                     <li {% if active_page == "AmountOfSkyscraper" %} class="active"{% endif %}><a href="/amount">Amount of skyscrapers in each city</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
+ 
       <h1>{% block heading %}{% endblock %}</h1>
       {% block body %}{% endblock %}
   </body>
