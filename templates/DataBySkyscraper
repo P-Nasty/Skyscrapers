@@ -1,0 +1,6 @@
+{% extends "layout.html" %}
+{% set active_page = "DataBySkyscrapers" %}
+{% block title %}About the Data{% endblock %}
+{% block heading %}The Skyscraper Data{% endblock %}
+{% block body %}
+{% endblock %}
