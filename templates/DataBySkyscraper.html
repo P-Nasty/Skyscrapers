@@ -3,4 +3,13 @@
 {% block title %}About the Data{% endblock %}
 {% block heading %}The Skyscraper Data{% endblock %}
 {% block body %}
+<form action='/data'>
+   <select name="state">
+   {{ options }}
+    </select>
+    <br><br>
+    <input type="submit">
+    <br><br>
+    <p>{{ response }}</p>
+   </form>
 {% endblock %}
