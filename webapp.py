@@ -25,7 +25,7 @@ def render_second():
 def render_third():
     try:
         name = request.args["name"]
-        return render_template('AmountOfSkyscrapers.html', options1 = get_name_options(),response = your_interesting_function(name))       
+        return render_template('AmountOfSkyscrapers.html', options1 = get_city_options(),response1 = your_interesting_function(name))       
     except:
         return render_template('AmountOfSkyscrapers.html', options1 = get_city_options())   
 
@@ -54,13 +54,26 @@ def your_interesting_function(name):
 def get_city_options():
         
     options = ""
-    city = ""
+    cities = []
     for c in buildings:
-        if not c["location"]["city"] == city:
+        if c["location"]["city"] not in cities:
+            cities.append(c["location"]["city"])
             options += Markup("<option value=\"" + c["location"]["city"] + "\">" + c["location"]["city"] + "</option>")
-            city = c["location"]["city"]
+          
     
     return options
+
+def your_interesting_function1(name):
+    count = 0
+    while not buildings[count]["name"] == name:
+        count += 1
+           
+    city = buildings[count]["location"]["city"]
+    skyscraper = buildings[count]["name"]
+    word = "is made out of:"
+    material = buildings[count]["material"]
+    return city + ": " + skyscraper + ": " + word + material
+    
     
 if __name__=="__main__":
     app.run(debug=True)  
