@@ -24,8 +24,8 @@ def render_second():
 @app.route("/amount")
 def render_third():
     try:
-        name = request.args["name"]
-        return render_template('AmountOfSkyscrapers.html', options1 = get_city_options(),response1 = your_interesting_function(name))       
+        name = request.args["city"]
+        return render_template('AmountOfSkyscrapers.html', options1 = get_city_options(),response1 = your_interesting_function1(name))       
     except:
         return render_template('AmountOfSkyscrapers.html', options1 = get_city_options())   
 
@@ -64,15 +64,12 @@ def get_city_options():
     return options
 
 def your_interesting_function1(name):
-    count = 0
-    while not buildings[count]["name"] == name:
-        count += 1
-           
-    city = buildings[count]["location"]["city"]
-    skyscraper = buildings[count]["name"]
-    word = "is made out of:"
-    material = buildings[count]["material"]
-    return city + ": " + skyscraper + ": " + word + material
+    counter = 0
+    for a in buildings:
+        if name == a["location"]["city"]:
+            counter += 1
+    return "there are " + str(counter) + " skyscrapers in " + name       
+  
     
     
 if __name__=="__main__":

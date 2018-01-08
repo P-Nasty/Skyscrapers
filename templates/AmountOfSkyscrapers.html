@@ -12,4 +12,65 @@
     <br><br>
     <p>{{ response1 }}</p>
 </form>
+<script>
+window.onload = function () {
+	
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	
+	title:{
+		text:"Fortune 500 Companies by Country"
+	},
+	axisX:{
+		interval: 1
+	},
+	axisY2:{
+		interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+		title: "Number of Companies"
+	},
+	data: [{
+		type: "bar",
+		name: "companies",
+		axisYType: "secondary",
+		color: "#014D65",
+		dataPoints: [
+			{ y: 419, label: "Chicago" },
+			{ y: 640, label: "New York" },
+			{ y: 68, label: "Houston" },
+			{ y: 54, label: "Las Vegas" },
+			{ y: 1, label: "Shorewood" },
+			{ y: 13, label: "Nashville" },
+			{ y: 42, label: "Atlanta" },
+			{ y: 130, label: "Miama" },
+			{ y: 17, label: "Clevland" },
+			{ y: 65, label: "Seatle" },
+			{ y: 27, label: "Dallas" },
+			{ y: 13, label: "Charlotte" },
+			{ y: 2, label: "Midland" },
+			{ y: 68, label: "San Francisco" },
+			{ y: 4, label: "Oklahoma" },
+			{ y: 39, label: "pittsburgh" },
+			{ y: 41, label: "Minneapolis" },
+			{ y: 38, label: "Boston" },
+			{ y: 1, label: "Mobile" },
+			{ y: 21, label: "Detroit" },
+			{ y: 8, label: "Atlantic City" },
+			{ y: 26, label: "Jersey City" },
+			{ y: 13, label: "Denver" },
+			{ y: 13, label: "Cincinnati" },
+			{ y: 24, label: "San Diego" },
+			
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
 {% endblock %}
